@@ -21,10 +21,15 @@ public class Interfaz extends javax.swing.JFrame {
     public Interfaz() {
         initComponents();
         ValidarJTextField(txtValorInicial);
-        comboBox_1.setSelectedIndex(0);
-        comboBox_2.setSelectedIndex(1);
+        comboBox_1.setSelectedIndex(5);
+        comboBox_2.setSelectedIndex(0);
     }
-    public void ValidarJTextField (JTextField t){
+    /**
+     * Metodo para validar cada valor tecleado por el usuario y permitir o no su uso
+     * Solo permite ingresar valores numericos con el metodo isDigit().
+     * @param t representa el componente jTextField 
+     */
+    private void ValidarJTextField (JTextField t){
         t.addKeyListener(new KeyAdapter (){
             @Override
             public void keyTyped(KeyEvent e){
@@ -52,14 +57,14 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtValorInicial = new javax.swing.JTextField();
         comboBox_1 = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Jlabel_intercambio = new javax.swing.JLabel();
+        Jlabel_Resultado = new javax.swing.JLabel();
+        Jlabel_icono_1 = new javax.swing.JLabel();
+        Jlabel_icono_2 = new javax.swing.JLabel();
         comboBox_2 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        Jlabel_valorComboBox_1 = new javax.swing.JLabel();
+        Jlabel_valorOrigen = new javax.swing.JLabel();
+        Jlabel_valorComboBox_2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,23 +82,29 @@ public class Interfaz extends javax.swing.JFrame {
         comboBox_1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBox_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar- USD- $", "Euros - EUR- € ", "Libras Esterlina - GBP - £", "Won Sur Koreano - KRW- ₩", "Yen Japones - JPY - ¥", "Peso Colombiano - COP - $" }));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/icons8-datos-en-ambas-direcciones-32.png"))); // NOI18N
+        Jlabel_intercambio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/icons8-datos-en-ambas-direcciones-32.png"))); // NOI18N
+        Jlabel_intercambio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jlabel_intercambio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jlabel_intercambioMouseClicked(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
-        jLabel3.setText("Mostrar el valor final");
+        Jlabel_Resultado.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
+        Jlabel_Resultado.setText("Mostrar el valor final");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/Dolar.png"))); // NOI18N
+        Jlabel_icono_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/PesoColombiano.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/Euros.png"))); // NOI18N
+        Jlabel_icono_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/Dolar.png"))); // NOI18N
 
         comboBox_2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBox_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar- USD- $", "Euros - EUR- € ", "Libras Esterlina - GBP - £", "Won Sur Koreano - KRW- ₩", "Yen Japones - JPY - ¥", "Peso Colombiano - COP - $" }));
 
-        jLabel6.setText("valor por unidad del primer combo box");
+        Jlabel_valorComboBox_1.setText("valor por unidad del primer combo box");
 
-        jLabel7.setText("valor inicial");
+        Jlabel_valorOrigen.setText("valor inicial");
 
-        jLabel8.setText("valor por unidad del segundo combo box");
+        Jlabel_valorComboBox_2.setText("valor por unidad del segundo combo box");
 
         jButton1.setBackground(new java.awt.Color(38, 38, 196));
         jButton1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -112,17 +123,17 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboBox_1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(Jlabel_icono_1))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                        .addComponent(Jlabel_intercambio)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(comboBox_2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5)))
-                    .addComponent(jLabel3))
+                            .addComponent(Jlabel_icono_2)))
+                    .addComponent(Jlabel_Resultado))
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,9 +141,9 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))))
+                            .addComponent(Jlabel_valorComboBox_1)
+                            .addComponent(Jlabel_valorOrigen)
+                            .addComponent(Jlabel_valorComboBox_2))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,25 +156,25 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Jlabel_icono_1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(comboBox_1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
+                            .addComponent(Jlabel_icono_2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(comboBox_2)
-                                .addComponent(jLabel2)
+                                .addComponent(Jlabel_intercambio)
                                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))))
                 .addGap(32, 32, 32)
-                .addComponent(jLabel7)
+                .addComponent(Jlabel_valorOrigen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(Jlabel_Resultado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(Jlabel_valorComboBox_1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addComponent(Jlabel_valorComboBox_2)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,12 +187,23 @@ public class Interfaz extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Jlabel_intercambioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jlabel_intercambioMouseClicked
+        // TODO add your handling code here:
+        int indice_1 = this.comboBox_1.getSelectedIndex();
+        int indice_2 = this.comboBox_2.getSelectedIndex();
+        
+        comboBox_1.setSelectedIndex(indice_2);
+        comboBox_2.setSelectedIndex(indice_1);
+    }//GEN-LAST:event_Jlabel_intercambioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -219,17 +241,17 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Jlabel_Resultado;
+    private javax.swing.JLabel Jlabel_icono_1;
+    private javax.swing.JLabel Jlabel_icono_2;
+    private javax.swing.JLabel Jlabel_intercambio;
+    private javax.swing.JLabel Jlabel_valorComboBox_1;
+    private javax.swing.JLabel Jlabel_valorComboBox_2;
+    private javax.swing.JLabel Jlabel_valorOrigen;
     private javax.swing.JComboBox<String> comboBox_1;
     private javax.swing.JComboBox<String> comboBox_2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtValorInicial;
     // End of variables declaration//GEN-END:variables

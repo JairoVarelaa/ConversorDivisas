@@ -15,7 +15,7 @@ public class Banderas {
         IconoBandera.put("libraEsterlina",new ImageIcon(Banderas.class.getResource("img/LibraEsterlina.png")));
         IconoBandera.put("yen",new ImageIcon(Banderas.class.getResource("img/YenJapones.png")));
         IconoBandera.put("won",new ImageIcon(Banderas.class.getResource("img/WonKoreano.png")));
-        IconoBandera.put("dolar",new ImageIcon(Banderas.class.getResource("img/PesoColombiano.png")));
+        IconoBandera.put("pesoColombiano",new ImageIcon(Banderas.class.getResource("img/PesoColombiano.png")));
     }
     /**
      * Metodo Get para obtener todos los iconos a manera de hashtable
