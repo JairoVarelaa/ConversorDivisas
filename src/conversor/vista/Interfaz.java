@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package challengeOneBackEnd.vista;
+package conversor.vista;
 
+import conversor.controlador.controller;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
@@ -20,10 +21,23 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
+       
         ValidarJTextField(txtValorInicial);
         comboBox_1.setSelectedIndex(5);
         comboBox_2.setSelectedIndex(0);
+        ActualizarBandera();
     }
+    
+    private void ActualizarBandera(){
+        controller control = new controller();
+        Jlabel_icono_1.setIcon(control.GetIconoMoneda(comboBox_1.getSelectedIndex()));
+        //System.out.println(comboBox_1.getSelectedIndex());
+        //System.out.println(control.GetIconoMoneda(1));
+        Jlabel_icono_2.setIcon(control.GetIconoMoneda(comboBox_2.getSelectedIndex()));
+         System.out.println(comboBox_2.getSelectedIndex());
+        
+    }
+    
     /**
      * Metodo para validar cada valor tecleado por el usuario y permitir o no su uso
      * Solo permite ingresar valores numericos con el metodo isDigit().
@@ -73,7 +87,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(238, 238, 253));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/Logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/img/Logo.png"))); // NOI18N
 
         txtValorInicial.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         txtValorInicial.setText("0.0");
@@ -82,7 +96,7 @@ public class Interfaz extends javax.swing.JFrame {
         comboBox_1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBox_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar- USD- $", "Euros - EUR- € ", "Libras Esterlina - GBP - £", "Won Sur Koreano - KRW- ₩", "Yen Japones - JPY - ¥", "Peso Colombiano - COP - $" }));
 
-        Jlabel_intercambio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/icons8-datos-en-ambas-direcciones-32.png"))); // NOI18N
+        Jlabel_intercambio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/img/icons8-datos-en-ambas-direcciones-32.png"))); // NOI18N
         Jlabel_intercambio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Jlabel_intercambio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,10 +106,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         Jlabel_Resultado.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         Jlabel_Resultado.setText("Mostrar el valor final");
-
-        Jlabel_icono_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/PesoColombiano.png"))); // NOI18N
-
-        Jlabel_icono_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/challengeOneBackEnd/modelo/img/Dolar.png"))); // NOI18N
 
         comboBox_2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBox_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar- USD- $", "Euros - EUR- € ", "Libras Esterlina - GBP - £", "Won Sur Koreano - KRW- ₩", "Yen Japones - JPY - ¥", "Peso Colombiano - COP - $" }));
@@ -203,6 +213,8 @@ public class Interfaz extends javax.swing.JFrame {
         
         comboBox_1.setSelectedIndex(indice_2);
         comboBox_2.setSelectedIndex(indice_1);
+        ActualizarBandera();
+        
     }//GEN-LAST:event_Jlabel_intercambioMouseClicked
 
     /**

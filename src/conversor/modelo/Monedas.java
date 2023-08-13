@@ -1,5 +1,5 @@
 
-package challengeOneBackEnd.modelo;
+package conversor.modelo;
 
 
 import java.util.Hashtable;

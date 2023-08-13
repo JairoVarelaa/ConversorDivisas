@@ -1,8 +1,8 @@
 
-package challengeOneBackEnd.controlador;
+package conversor.controlador;
 
-import challengeOneBackEnd.modelo.Banderas;
-import challengeOneBackEnd.modelo.Monedas;
+import conversor.modelo.Banderas;
+import conversor.modelo.Monedas;
 import javax.swing.ImageIcon;
 
 public class controller {
@@ -38,14 +38,11 @@ public class controller {
         }
         return valor;
     }
-    /**
-     * 
-     * @param moneda
-     * @return 
-     */
-    public ImageIcon CambioIcono(String moneda){
-        return iconos.GetIcono(moneda);
-    }
     
+    public ImageIcon GetIconoMoneda(int indice){
+        //System.out.println("clase controller : valor indice : " + indice);
+        //System.out.println("valor del metodo GetIcono" + this.iconos.GetIcono(indice));
+        return this.iconos.GetIcono(indice);
+    }
     
 }
