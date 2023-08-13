@@ -1,23 +1,38 @@
 
 package challengeOneBackEnd.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Hashtable;
 import javax.swing.ImageIcon;
 
 public class Banderas {
-    List<ImageIcon> iconosBanderas = new ArrayList<>();
+   
+    Hashtable<String, ImageIcon> IconoBandera = new Hashtable<>();
     
-    public void Banderas(){
-        iconosBanderas.add(new ImageIcon(Banderas.class.getResource("img/Dolar.png")));
-        iconosBanderas.add(new ImageIcon(Banderas.class.getResource("img/Euros.png")));
-        iconosBanderas.add(new ImageIcon(Banderas.class.getResource("img/LibraEsterlina.png")));
-        iconosBanderas.add(new ImageIcon(Banderas.class.getResource("img/YenJapones.png")));
-        iconosBanderas.add(new ImageIcon(Banderas.class.getResource("img/WonKoreano.png")));
-        iconosBanderas.add(new ImageIcon(Banderas.class.getResource("img/PesoColombiano.png")));
+    void Banderas(){
+        IconoBandera.put("dolar",new ImageIcon(Banderas.class.getResource("img/Dolar.png")));
+        IconoBandera.put("euro",new ImageIcon(Banderas.class.getResource("img/Euros.png")));
+        IconoBandera.put("libraEsterlina",new ImageIcon(Banderas.class.getResource("img/LibraEsterlina.png")));
+        IconoBandera.put("yen",new ImageIcon(Banderas.class.getResource("img/YenJapones.png")));
+        IconoBandera.put("won",new ImageIcon(Banderas.class.getResource("img/WonKoreano.png")));
+        IconoBandera.put("dolar",new ImageIcon(Banderas.class.getResource("img/PesoColombiano.png")));
     }
-    public List GetBanderas(){
-        return this.iconosBanderas;
+    /**
+     * Metodo Get para obtener todos los iconos a manera de hashtable
+     * @return la Hashtable IconoBandera.
+     */
+    public Hashtable GetBanderas(){
+        
+        return this.IconoBandera;
+    }
+    /**
+     * Metodo get para obtener solo 1 valor de la Hashtable a partir de la clabe (key) por parametro.
+     * @param nombreMoneda recibe el valor a consultar en la Hashtable.
+     * @return El valor de la llave (key).
+     */
+    public ImageIcon GetIcono(String nombreMoneda){
+        
+        return this.IconoBandera.get(nombreMoneda);
     }
     
     
