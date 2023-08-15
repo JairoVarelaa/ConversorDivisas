@@ -3,6 +3,7 @@ package conversor.controlador;
 
 import conversor.modelo.Banderas;
 import conversor.modelo.Monedas;
+import java.util.Hashtable;
 import javax.swing.ImageIcon;
 
 public class controller {
@@ -15,28 +16,11 @@ public class controller {
       * @param opcion
       * @return 
       */ 
-    public double CambioDeDivisa(double valor , String opcion ){
+    public double CambioDeDivisa(double cantidad , int indice_De, int indice_A ){
+        Hashtable<Integer, Double> dolar = monedas.getDolar();
         
-        switch(opcion){
-            case "dolar":
-                    valor *= monedas.GetMoneda(opcion);
-                break;
-            case "euro":
-                    valor *= monedas.GetMoneda(opcion);
-                break;
-            case "libraEsterlina":
-                    valor *= monedas.GetMoneda(opcion);
-                break;
-            case "won":
-                    valor *= monedas.GetMoneda(opcion);
-                break;
-            case "yen":
-                    valor *= monedas.GetMoneda(opcion);
-                break;
-            default:
-                break;
-        }
-        return valor;
+       
+        return cantidad;
     }
     
     public ImageIcon GetIconoMoneda(int indice){

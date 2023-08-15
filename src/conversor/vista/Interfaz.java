@@ -31,11 +31,8 @@ public class Interfaz extends javax.swing.JFrame {
     private void ActualizarBandera(){
         controller control = new controller();
         Jlabel_icono_1.setIcon(control.GetIconoMoneda(comboBox_1.getSelectedIndex()));
-        //System.out.println(comboBox_1.getSelectedIndex());
-        //System.out.println(control.GetIconoMoneda(1));
-        Jlabel_icono_2.setIcon(control.GetIconoMoneda(comboBox_2.getSelectedIndex()));
-         System.out.println(comboBox_2.getSelectedIndex());
-        
+  
+        Jlabel_icono_2.setIcon(control.GetIconoMoneda(comboBox_2.getSelectedIndex()));  
     }
     
     /**
@@ -79,13 +76,16 @@ public class Interfaz extends javax.swing.JFrame {
         Jlabel_valorComboBox_1 = new javax.swing.JLabel();
         Jlabel_valorOrigen = new javax.swing.JLabel();
         Jlabel_valorComboBox_2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_convertir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor de moneda internacional Alura");
         setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel1.setBackground(new java.awt.Color(238, 238, 253));
+        jPanel1.setBackground(new java.awt.Color(248, 248, 253));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/img/Logo.png"))); // NOI18N
 
@@ -95,6 +95,11 @@ public class Interfaz extends javax.swing.JFrame {
 
         comboBox_1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBox_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar- USD- $", "Euros - EUR- € ", "Libras Esterlina - GBP - £", "Won Sur Koreano - KRW- ₩", "Yen Japones - JPY - ¥", "Peso Colombiano - COP - $" }));
+        comboBox_1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBox_1ItemStateChanged(evt);
+            }
+        });
 
         Jlabel_intercambio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/img/icons8-datos-en-ambas-direcciones-32.png"))); // NOI18N
         Jlabel_intercambio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,8 +112,17 @@ public class Interfaz extends javax.swing.JFrame {
         Jlabel_Resultado.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         Jlabel_Resultado.setText("Mostrar el valor final");
 
+        Jlabel_icono_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/img/PesoColombiano.png"))); // NOI18N
+
+        Jlabel_icono_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/img/Dolar.png"))); // NOI18N
+
         comboBox_2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBox_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolar- USD- $", "Euros - EUR- € ", "Libras Esterlina - GBP - £", "Won Sur Koreano - KRW- ₩", "Yen Japones - JPY - ¥", "Peso Colombiano - COP - $" }));
+        comboBox_2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBox_2ItemStateChanged(evt);
+            }
+        });
 
         Jlabel_valorComboBox_1.setText("valor por unidad del primer combo box");
 
@@ -116,10 +130,27 @@ public class Interfaz extends javax.swing.JFrame {
 
         Jlabel_valorComboBox_2.setText("valor por unidad del segundo combo box");
 
-        jButton1.setBackground(new java.awt.Color(38, 38, 196));
-        jButton1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Convertir");
+        btn_convertir.setBackground(new java.awt.Color(38, 38, 196));
+        btn_convertir.setFont(new java.awt.Font("Corbel", 1, 16)); // NOI18N
+        btn_convertir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_convertir.setText("Convertir");
+        btn_convertir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_convertirMouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setText("Cantidad");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setText("De:");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setText("A");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,20 +160,29 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBox_1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jlabel_icono_1))
-                        .addGap(18, 18, 18)
-                        .addComponent(Jlabel_intercambio)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(comboBox_1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Jlabel_intercambio))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Jlabel_icono_1)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(comboBox_2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Jlabel_icono_2)))
+                                .addComponent(btn_convertir, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Jlabel_icono_2))))
                     .addComponent(Jlabel_Resultado))
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -163,19 +203,26 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(Jlabel_icono_1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Jlabel_icono_1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(comboBox_1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(Jlabel_icono_2)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Jlabel_icono_2)
+                                .addComponent(jLabel4))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(comboBox_2)
                                 .addComponent(Jlabel_intercambio)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))))
+                                .addComponent(btn_convertir, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))))
                 .addGap(32, 32, 32)
                 .addComponent(Jlabel_valorOrigen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -216,6 +263,21 @@ public class Interfaz extends javax.swing.JFrame {
         ActualizarBandera();
         
     }//GEN-LAST:event_Jlabel_intercambioMouseClicked
+
+    private void comboBox_1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBox_1ItemStateChanged
+        // TODO add your handling code here:
+        ActualizarBandera();
+    }//GEN-LAST:event_comboBox_1ItemStateChanged
+
+    private void comboBox_2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBox_2ItemStateChanged
+        // TODO add your handling code here:
+         ActualizarBandera();
+    }//GEN-LAST:event_comboBox_2ItemStateChanged
+
+    private void btn_convertirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_convertirMouseClicked
+            
+        
+    }//GEN-LAST:event_btn_convertirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -260,10 +322,13 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Jlabel_valorComboBox_1;
     private javax.swing.JLabel Jlabel_valorComboBox_2;
     private javax.swing.JLabel Jlabel_valorOrigen;
+    private javax.swing.JButton btn_convertir;
     private javax.swing.JComboBox<String> comboBox_1;
     private javax.swing.JComboBox<String> comboBox_2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtValorInicial;
     // End of variables declaration//GEN-END:variables

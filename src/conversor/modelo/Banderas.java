@@ -16,7 +16,6 @@ public class Banderas {
         IconoBandera.put(3,new javax.swing.ImageIcon("src/Assets/img/WonKoreano.png"));
         IconoBandera.put(4,new javax.swing.ImageIcon("src/Assets/img/YenJapones.png"));
         IconoBandera.put(5,new javax.swing.ImageIcon("src/Assets/img/PesoColombiano.png"));
-     
     }
     /**
      * Metodo Get para obtener todos los iconos a manera de hashtable
@@ -32,13 +31,6 @@ public class Banderas {
      * @return El valor de la llave (key).
      */
     public ImageIcon GetIcono(int indice){
-        System.out.println("Todas las banderas;");
-        System.out.println(this.IconoBandera.get(0));
-        System.out.println(this.IconoBandera.get(1));
-        System.out.println(this.IconoBandera.get(2));
-        System.out.println(this.IconoBandera.get(3));
-        System.out.println(this.IconoBandera.get(4));
-        System.out.println(this.IconoBandera.get(5));
         return this.IconoBandera.get(indice);
     }
     
