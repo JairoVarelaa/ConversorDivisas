@@ -275,7 +275,13 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBox_2ItemStateChanged
 
     private void btn_convertirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_convertirMouseClicked
-            
+        controller control = new controller();
+        
+        double cantidad = Double.parseDouble(txtValorInicial.getText());
+        System.out.println("Valor enviado al metodo controller:"+ cantidad);
+        System.out.println("Valor enviado al metodo controller desde el combobox:"+ comboBox_1.getSelectedIndex());
+        
+        control.CambioDeDivisa(cantidad, comboBox_1.getSelectedIndex(),comboBox_2.getSelectedIndex() );
         
     }//GEN-LAST:event_btn_convertirMouseClicked
 
