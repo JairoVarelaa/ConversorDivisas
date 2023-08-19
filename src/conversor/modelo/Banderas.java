@@ -8,7 +8,9 @@ import javax.swing.ImageIcon;
 public class Banderas {
    
     Hashtable<Integer, ImageIcon> IconoBandera = new Hashtable<>();
-    
+    /**
+     * Metodo Constructor de la clase Banderas para establecer la Hashtable con los iconos correspondientes.
+     */
     public Banderas(){
         IconoBandera.put(0,new javax.swing.ImageIcon("src/Assets/img/Dolar.png"));
         IconoBandera.put(1,new javax.swing.ImageIcon("src/Assets/img/Euros.png"));
