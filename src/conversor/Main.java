@@ -10,8 +10,6 @@ import conversor.vista.Interfaz;
 public class Main {
 
     public static void main(String[] args) {
-       Interfaz PantallaPrincipal = new Interfaz();
-       PantallaPrincipal.setVisible(true);
+       new Interfaz().setVisible(true);
     }
-    
 }
