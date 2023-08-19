@@ -32,7 +32,6 @@ Descargue el archivo .jar solo debe ejecutarlo y así podrá probar el conversor
                     
 
 ![Interfaz_2](https://github.com/JairoVarelaa/ConversorDivisas/assets/129685046/b0657f1d-bbad-4e0a-9996-de6a85f4e50d)
-
-#--------------------------------------------------------
+ # inf
 Proyecto realizado con Apache NetBeans IDE 18
 JDK 16
