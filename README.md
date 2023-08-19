@@ -24,7 +24,7 @@ Recordando que también debe ser posible convertir inversamente, es decir:
         - Convertir de Won sul-coreano a la moneda de tu país
 
         
-!Importante¡
+# Importante
 
 Si desea pobra el conversos de divisas ingrese a la siguiente ruta:
 dist/JavaChallenge.jar
