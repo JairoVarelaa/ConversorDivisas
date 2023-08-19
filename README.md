@@ -26,15 +26,13 @@ Recordando que también debe ser posible convertir inversamente, es decir:
         
 # Importante
 
-Si desea pobra el conversos de divisas ingrese a la siguiente ruta:
-dist/JavaChallenge.jar
-y descarge el archivo .jar solo debe ejecutarlo y asi podra probar el conversor de divisas.
+Si desea pobra el conversos de divisas ingrese a la siguiente ruta: 
+dist/JavaChallenge.jar 
+Descargue el archivo .jar solo debe ejecutarlo y así podrá probar el conversor de divisas.
                     
-
-
-![Interfaz_1](https://github.com/JairoVarelaa/ConversorDivisas/assets/129685046/785b4666-af1b-4d33-bf38-0492b3bcc496)
-
-
 
 ![Interfaz_2](https://github.com/JairoVarelaa/ConversorDivisas/assets/129685046/b0657f1d-bbad-4e0a-9996-de6a85f4e50d)
 
+#--------------------------------------------------------
+Proyecto realizado con Apache NetBeans IDE 18
+JDK 16
